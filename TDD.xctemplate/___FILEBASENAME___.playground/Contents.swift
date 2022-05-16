@@ -29,4 +29,20 @@ class FooTests: XCTestCase {
     }
 }
 
+class TestObserver: NSObject, XCTestObservation {
+    func testCase(_ testCase: XCTestCase,
+                  didFailWithDescription description: String,
+                  inFile filePath: String?,
+                  atLine lineNumber: Int) {
+        print("                                                                   ")
+        print("*******************************************************************")
+        print("Test failed on line \(lineNumber): \(testCase.name), \(description)")
+        print("*******************************************************************")
+        print("                                                                   ")
+    }
+}
+
+let testObserver = TestObserver()
+XCTestObservationCenter.shared.addTestObserver(testObserver)
+
 FooTests.defaultTestSuite.run()
