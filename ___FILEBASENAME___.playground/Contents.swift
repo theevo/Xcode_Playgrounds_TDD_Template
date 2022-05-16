@@ -1,8 +1,8 @@
 import XCTest
 
 class Solution {
-    func validMountainArray(_ arr: [Int]) -> Bool {
-        return false
+    func sortArray(_ nums: [Int]) -> [Int] {
+        return nums
     }
 }
 
@@ -21,11 +21,11 @@ class FooTests: XCTestCase {
         let sut = Solution()
 
         // when
-        let arr = [2,1]
-        let result = sut.validMountainArray(arr)
+        let arr = [5,2,3,1]
+        let result = sut.sortArray(arr)
 
         // then
-        XCTAssertFalse(result)
+        XCTAssertEqual(result, [1,2,3,5])
     }
 }
 
